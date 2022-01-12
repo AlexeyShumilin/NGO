@@ -1,26 +1,37 @@
 <template>
   <nav class="navigation">
-    <Logo :title="logoText"/>
-    <nuxt-link class="link" to="/">Main</nuxt-link>
-    <nuxt-link class="link" to="/about">About page</nuxt-link>
-    <button class="button">Enter</button>
-    <!--<Modal />-->
+    <Logo :title="logoText" /> 
+    <nuxt-link v-for="elem in linksArray" class="link" :to="elem.to" :key="elem.title">
+      {{ elem.title }}
+    </nuxt-link>
+    <button class="button" @click="toggleModal">{{ text }}</button>
+    <Modal v-show="showModal" :onToggle="toggleModal" />
   </nav>
 </template>
 
 <script>
-import Logo from "./navigation/logo";
-export default {
-  components: {
-    Logo,
-  },
-  data() {
-    return {
-      text: "Hello yoyoyoy",
-      logoText: "НКО проект",
-    };
-  },
-};
+  import Logo from './navigation/logo';
+  export default {
+    components: {
+      Logo
+    },
+    data() {
+      return {
+        text: 'Enter',
+        logoText: 'НКО-проект',
+        linksArray: [
+          { to: '/', title: 'Main' },
+          { to: '/about', title: 'About page' },
+        ],
+        showModal: false,
+      }
+    },
+    methods: {
+      toggleModal() {
+        this.showModal = !this.showModal;
+      }
+    }
+  }
 </script>
 
 <style scoped>
@@ -34,7 +45,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255,255,255,0.2);
 }
 
 .button {
@@ -45,12 +56,12 @@ export default {
   border: 1px solid black;
   border-radius: 30px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: .3s;
 }
 .button:hover {
   background: black;
   color: white;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .link {

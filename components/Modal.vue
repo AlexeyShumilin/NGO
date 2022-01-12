@@ -1,11 +1,11 @@
 <template>
   <article class="modal-wrap">
     <div class="container">
-      <span class="icon-close" />
+      <span class="icon-close" @click="onToggle" />
       <h1>Вход</h1>
       <label class="label">
         Email
-        <input class="input" type="email">
+        <input class="input" type="email" v-model="email">
       </label>
       <label class="label">
         Пароль
@@ -18,7 +18,17 @@
 
 <script>
   export default {
-    
+    data() {
+      return {
+        email: '',
+      }
+    },
+    props: {
+      onToggle: {
+        type: Function,
+        default: () => {},
+      }
+    }
   }
 </script>
 
