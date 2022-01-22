@@ -1,0 +1,20 @@
+{
+  "About": {
+    "description": "Auto imported from components/About.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "Modal": {
+    "description": "Auto imported from components/Modal.vue"
+  },
+  "Navigation": {
+    "description": "Auto imported from components/Navigation.vue"
+  },
+  "Test": {
+    "description": "Auto imported from components/Test.vue"
+  },
+  "NavigationLogo": {
+    "description": "Auto imported from components/navigation/Logo.vue"
+  }
+}

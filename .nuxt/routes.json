@@ -1,0 +1,26 @@
+[
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "/Users/alexeyshumilin/NGO/pages/about.vue",
+    "chunkName": "pages/about"
+  },
+  {
+    "name": "id",
+    "path": "/id",
+    "component": "/Users/alexeyshumilin/NGO/pages/id/index.vue",
+    "chunkName": "pages/id/index"
+  },
+  {
+    "name": "id-:id",
+    "path": "/id/:id",
+    "component": "/Users/alexeyshumilin/NGO/pages/id/:id.vue",
+    "chunkName": "pages/id/:id"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/alexeyshumilin/NGO/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]

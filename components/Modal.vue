@@ -1,17 +1,19 @@
 <template>
   <article class="modal-wrap">
     <div class="container">
-      <span class="icon-close" @click="onToggle" />
+      <span class="icon-close" @click="$emit('modalClose', email)" />
       <h1>Вход</h1>
-      <label class="label">
-        Email
-        <input class="input" type="email" v-model="email">
-      </label>
-      <label class="label">
-        Пароль
-        <input class="input" type="password">
-      </label>
-      <button class="button">Войти</button>
+      <form>
+        <label class="label">
+          Email
+          <input class="input" type="email" v-model="email" @keyup.enter="handleKeyPress">
+        </label>
+        <label class="label">
+          Пароль
+          <input class="input" type="password">
+        </label>
+        <button type="submit" class="button" @click.prevent.stop="handleButtonClick">Войти</button>
+      </form>
     </div>
   </article>
 </template>
@@ -21,12 +23,41 @@
     data() {
       return {
         email: '',
+        testData: '<<<Hello world>>>',
       }
     },
-    props: {
-      onToggle: {
-        type: Function,
-        default: () => {},
+
+    beforeCreate() {
+      console.log('Here is beforeCreate!');
+      console.log(this.testData, 'and here is data in beforeCreate')
+    },
+    created() {
+      console.log('Here is created!');
+      console.log(this.testData, 'and here is data in created')
+    },
+    beforeMount() {
+      console.log('Here is beforeMount!');
+      console.log(this.testData, 'and here is data in beforeMount')
+    },
+    mounted() {
+      console.log('Here is mounted!');
+      console.log(this.testData, 'and here is data in mounted')
+    },
+    beforeDestroy() {
+      console.log('Here is beforeDestroy!');
+      console.log(this.testData, 'and here is data in beforeDestroy')
+    },
+    destroyed() {
+      console.log('Here is destroyed!');
+      console.log(this.testData, 'and here is data in destroyed')
+    },
+
+    methods: {
+      handleButtonClick(event) {
+        console.log('clicked')
+      },
+      handleKeyPress(event) {
+        console.log(event, 'key pressed!')
       }
     }
   }

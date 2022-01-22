@@ -5,7 +5,7 @@
       {{ elem.title }}
     </nuxt-link>
     <button class="button" @click="toggleModal">{{ text }}</button>
-    <Modal v-show="showModal" :onToggle="toggleModal" />
+    <Modal v-show="showModal" @modalClose="toggleModal" />
   </nav>
 </template>
 
